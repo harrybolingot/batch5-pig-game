@@ -73,7 +73,6 @@ function rollDice(){
         }
         console.log('PLAYER SCORE: ' + player2.currentScore);
         playerScore2.innerHTML = player2.currentScore;
-        playerCurrentScore2.innerHTML = player2.currentScore;
     } 
     // console.log("You rolled " + diceRollValue + "!\n" + "Player name: " + player.name + "\nCurrent score: " + player.currentScore + "\nStill your turn?: " + player.turn);
 }
