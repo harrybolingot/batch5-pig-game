@@ -31,8 +31,8 @@ class Player {
         }
     }
 
-    hold() {
-        hold = true;
+    playerHold() {
+        this.turn = false;
         this.totalScore += this.currentScore;
     }
 }
