@@ -9,11 +9,13 @@ GAME RULES:
 
 */
 
-var diceMin = 1, diceMax = 6;
+var diceMin = 1, diceMax = 6, roundNumber = 0;
 
 class Player {
     currentScore = 0;
     totalScore = 0;
+    turn = true;
+    hold = false;
 
     constructor(name){
         this.name = name;
@@ -22,12 +24,16 @@ class Player {
     updateScore(diceRoll) {
         if (diceRoll == 1){
             this.currentScore = 0;
-            this.totalScore += this.currentScore;
+            this.turn = false;
         } 
         else {
             this.currentScore += diceRoll;
-            this.totalScore += this.currentScore;
         }
+    }
+
+    hold() {
+        hold = true;
+        this.totalScore += this.currentScore;
     }
 }
 
@@ -46,5 +52,5 @@ function rollDice(player){
     // get random number between 1 and 6
     let diceRollValue = randomNumber(diceMin, diceMax);
     player.updateScore(diceRollValue);
-    console.log("You rolled " + diceRollValue + "!\n" + "Player name: " + player.name + "\nCurrent score: " + player.currentScore + "\nTotal score: " + player.totalScore);
+    console.log("You rolled " + diceRollValue + "!\n" + "Player name: " + player.name + "\nCurrent score: " + player.currentScore + "\nStill your turn?: " + player.turn);
 }
