@@ -95,4 +95,14 @@ function holdScore() {
 function changeTurn() {
     player1.turn = !player1.turn;
     player2.turn = !player2.turn;
+
+    if (player1.turn === true){
+        document.getElementById("player-1-panel").classList.add("active");
+        document.getElementById("player-2-panel").classList.remove("active");
+    } 
+
+    if (player2.turn === true){
+        document.getElementById("player-1-panel").classList.remove("active");
+        document.getElementById("player-2-panel").classList.add("active");
+    } 
 }
