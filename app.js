@@ -15,25 +15,26 @@ const playerCurrentScore1 = document.getElementById('current-0');
 const playerName2 = document.getElementById('name-1');
 const playerScore2 = document.getElementById('score-1');
 const playerCurrentScore2 = document.getElementById('current-1');
-let totalScore;
+let turnCount;
 
-addPlayerScore(player, turn) {
-    let currentTurn = turn % 2;
-    if(currentTurn === 0) {
+function addPlayerScore(player) {
+    if(turn != 0) {
         //add diceRoll score to playerScore
         playerName1.innerHTML = player.Name;
         playerScore1.innerHTML = player.score;
         playerCurrentScore1.innerHTML = player.currentScore;
     } else {
+        //add diceRoll score to playerScore
         playerName2.innerHTML = player.Name;
         playerScore2.innerHTML = player.score;
         playerCurrentScore2.innerHTML = player.currentScore;
     }
 }
 
-holdScore(player) {
+function holdScore(player) {
     //add playerScore to totalScore
     //display totalScore
+    return player;
 }
 
 
