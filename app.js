@@ -62,12 +62,10 @@ function startNewGame(){
 
 function rollDice(){
     if(isGameOver === true) {
-        // !(isGameOver);
         startNewGame();
     }
 
     else {
-        // get random number between 1 and 6
         let diceRollValue = randomNumber(diceMin, diceMax);
         console.log(diceRollValue);
         document.getElementById('dice').src = "dice-" + diceRollValue + ".png";
@@ -91,7 +89,6 @@ function rollDice(){
             playerScore2.innerHTML = player2.currentScore;
         } 
     }
-    // console.log("You rolled " + diceRollValue + "!\n" + "Player name: " + player.name + "\nCurrent score: " + player.currentScore + "\nStill your turn?: " + player.turn);
 }
 
 function holdScore() {
@@ -131,8 +128,6 @@ function holdScore() {
             changeTurn();
         }
     }
-
-    
 }
 function changeTurn() {
     player1.turn = !player1.turn;
