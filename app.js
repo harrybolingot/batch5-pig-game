@@ -42,20 +42,27 @@ function randomNumber(min, max) {
 }
 
 function startNewGame(){
+    isGameOver = false;
     player1.currentScore = 0;
     player2.currentScore = 0;
     player1.totalScore = 0;
     player2.totalScore = 0;
+    player1.turn = true;
     player2.turn = false;
-    playerScore1.innerHTML = 0;
-    playerScore2.innerHTML = 0;
-    playerCurrentScore1.innerHTML = 0;
-    playerCurrentScore2.innerHTML = 0;
+    playerScore1.innerHTML = player1.currentScore;
+    playerScore2.innerHTML = player2.currentScore;
+    playerCurrentScore1.innerHTML = player1.totalScore;
+    playerCurrentScore2.innerHTML = player1.totalScore;
+    document.getElementById("player-1-panel").classList.remove("winner");
+    document.getElementById("player-1-panel").classList.add("active");
+    document.getElementById("player-2-panel").classList.remove("winner");
+    document.getElementById("player-2-panel").classList.remove("active");
     document.getElementById("gameState").style.display = "none";
 }
 
 function rollDice(){
     if(isGameOver === true) {
+        // !(isGameOver);
         startNewGame();
     }
 
