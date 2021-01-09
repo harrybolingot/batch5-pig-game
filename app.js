@@ -10,6 +10,7 @@ GAME RULES:
 */
 
 var diceMin = 1, diceMax = 6, roundNumber = 0;
+var players = [];
 
 class Player {
     currentScore = 0;
@@ -32,6 +33,7 @@ class Player {
     }
 
     playerHold() {
+        this.hold = true;
         this.turn = false;
         this.totalScore += this.currentScore;
     }
@@ -51,6 +53,8 @@ function startNewGame(){
 function rollDice(player){
     // get random number between 1 and 6
     let diceRollValue = randomNumber(diceMin, diceMax);
+
     player.updateScore(diceRollValue);
-    console.log("You rolled " + diceRollValue + "!\n" + "Player name: " + player.name + "\nCurrent score: " + player.currentScore + "\nStill your turn?: " + player.turn);
 }
+
+// document.getElementById('dice').src = "dice-" + diceRollValue + ".png";
