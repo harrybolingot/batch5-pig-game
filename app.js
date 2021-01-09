@@ -9,28 +9,25 @@ GAME RULES:
 
 */
 
-var diceMin = 1;
-var diceMax = 6;
+var diceMin = 1, diceMax = 6;
 
 class Player {
+    currentScore = 0;
+    totalScore = 0;
+
     constructor(name){
-        this.playerName = name;
+        this.name = name;
     }
 
-    get currentScore() {
-        return this.calcCurrentScore(diceNumber);
-    }
-
-    get totalScore(){
-        return this.totalScore;
-    }
-
-    calcCurrentScore(diceNumber) {
-        this.currentScore += diceNumber;
-    }
-
-    calcTotalScore() {
-        this.totalScore += currentScore;
+    updateScore(diceRoll) {
+        if (diceRoll == 1){
+            this.currentScore = 0;
+            this.totalScore += this.currentScore;
+        } 
+        else {
+            this.currentScore += diceRoll;
+            this.totalScore += this.currentScore;
+        }
     }
 }
 
@@ -41,26 +38,13 @@ function randomNumber(min, max) {
 }
 
 function startNewGame(){
-    var player1 = new Player("Player 1");
-    var player2 = new Player("Player 2");
-
-    // Ensure scores are 0
-    player1.currentScore = 0;
-    player1.totalScore = 0;
-    player2.currentScore = 0;
-    player2.totalScore = 0;
+    player1 = new Player("Player 1");
+    player2 = new Player("Player 2");
 }
 
 function rollDice(player){
     // get random number between 1 and 6
     let diceRollValue = randomNumber(diceMin, diceMax);
-
-    if(diceRoll == 1) {
-        // If dice roll value is 1, player loses all round score (=0)
-        player.currentScore() = 0;
-    }
-    else {
-        // Else, add dice roll value to player's current score
-        player.currentScore(diceRollValue);
-    }
+    player.updateScore(diceRollValue);
+    console.log("You rolled " + diceRollValue + "!\n" + "Player name: " + player.name + "\nCurrent score: " + player.currentScore + "\nTotal score: " + player.totalScore);
 }
