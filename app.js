@@ -143,3 +143,5 @@ function changeTurn() {
         document.getElementById("player-2-panel").classList.add("active");
     } 
 }
+
+/* test github desktop */
